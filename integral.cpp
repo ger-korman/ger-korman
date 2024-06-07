@@ -6,7 +6,7 @@
 double func(double x, double a, double b, double c, double d) { //integrand
     return a*exp(-d*pow(x-c, 2))+5.14;
 }
-//left rule (identical to the Kotes method with zero interpolation)
+//left rule (identical to the Newton-Cotes rule with zero interpolation)
 double LeftRectangleMethod(double xn, double xk, double a, double b, double c, double d, int n) {
     double h = (xk - xn) / n;
     double sum = 0.; 
@@ -30,7 +30,7 @@ double MiddleRectangleMethod(double xn, double xk, double a, double b, double c,
         sum += func((xn + i*h + h/2), a, b, c, d);
     return h * sum;
 }
-//trapezoid rule (identical to the Kotes method with the first degree of interpolation)
+//trapezoid rule (identical to the Newton-Cotes rule with the first degree of interpolation)
 double TrapezoidalMethod(double xn, double xk, double a, double b, double c, double d, int n) {
     double h = (xk - xn) / n;
     double sum = func(xn, a, b, c, d) + func((xn + h), a, b, c, d);
